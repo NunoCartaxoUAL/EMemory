@@ -7,7 +7,7 @@ import java.io.FileReader
 
 fun loadMemosFromFile(context: Context): List<Memo> {
     val fileName = "memos.md"
-    val directory = File(context.getExternalFilesDir(null), "YourAppFolder")
+    val directory = File(context.getExternalFilesDir(null), "Ememo")
 
     if (!directory.exists() || !directory.isDirectory) {
         return emptyList()

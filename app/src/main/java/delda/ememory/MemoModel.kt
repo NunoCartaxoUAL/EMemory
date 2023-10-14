@@ -19,8 +19,11 @@ class MemoModel : ViewModel() {
     }
     //read memos from file
     fun readMemo(context: Context) {
+        print("sdasdadsadsadadsadads1a")
         val memosFromFile = loadMemosFromFile(context)
+        print("sdasdadsadsadadsadadsa2")
         val currentMemos = _memos.value.orEmpty().toMutableList()
+        print("sdasdadsadsadadsadadsa3")
         currentMemos.addAll(memosFromFile)
         _memos.value = currentMemos
     }
