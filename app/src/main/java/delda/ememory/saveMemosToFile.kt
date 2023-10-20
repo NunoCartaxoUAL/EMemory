@@ -5,14 +5,15 @@ import java.io.File
 import java.io.FileWriter
 import java.io.IOException
 
-fun saveMemosToFile(context: Context,memos: List<Memo>): Boolean {
-    val fileName = "memos.md"
+
+
+fun saveMemoToFile(context: Context,memo: Memo): Boolean {
+    //save memo to file with name (title)_memo.md , remove all spaces and special characters from title
+    val fileName = "${memo.title.replace("[^a-zA-Z0-9]".toRegex(), "")}_memo.md"
     val directory = File(context.getExternalFilesDir(null), "Ememo")
-    //print the path of the directory as text
-    print(directory)
+
     if (!directory.exists()) {
         if (!directory.mkdirs()) {
-            // Directory creation failed, handle the error
             print("Directory creation failed")
             return false
         }
@@ -23,10 +24,8 @@ fun saveMemosToFile(context: Context,memos: List<Memo>): Boolean {
 
     try {
         val writer = FileWriter(file)
-        for (memo in memos) {
-            val memoText = "- ${memo.title}\n${memo.content}\n\n"
-            writer.append(memoText)
-        }
+        val memoText = "${memo.title}\n---\n${memo.content}"
+        writer.write(memoText)
         writer.flush()
         writer.close()
         return true
