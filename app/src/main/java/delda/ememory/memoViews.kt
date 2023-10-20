@@ -238,7 +238,6 @@ fun MemoListScreen(navController: NavController, viewModel: MemosListModel) {
     }
 }
 
-//make a preview for MemoScreen
 @RequiresApi(Build.VERSION_CODES.R)
 @Composable
 @Preview(showBackground = true)

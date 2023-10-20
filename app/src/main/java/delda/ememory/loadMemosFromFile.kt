@@ -11,12 +11,11 @@ fun loadMemosFromFiles(context: Context): List<Memo> {
     if (!directory.exists() || !directory.isDirectory) {
         return emptyList()
     }
-    //print the directory and the files in it as a string of names
 
     val memos = mutableListOf<Memo>()
     val files = directory.listFiles()
-    //make id
     var id = 0
+
     if (files != null) {
         for (file in files) {
             println(file.name)
